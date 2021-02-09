@@ -10,7 +10,7 @@
 
     <!--
     <div class="example-wrapper">
-        <h1>Hello {{ controller_name }}! ✅</h1>
+        <h1>Hello {{ controller_name|default('controller_name is undefined') }}! ✅</h1>
 
         This friendly message is coming from:
         <ul>
@@ -21,7 +21,10 @@
     -->
 
     <div>
-        <h1>Hello {{ controller_name|trim|default('controller_name is undefined') }}</h1>
+        <h1 style="text-align: center">Hello {{ controller_name|default('controller_name is undefined') }}</h1>
+
+        <!-- need to use iframe only for pdf file -->
+        <iframe src="{{ asset('pictures/cv_bregeon_quentin.pdf') }}" width="1000" height="1300" allowfullscreen></iframe>
     </div>
 
     <script>
