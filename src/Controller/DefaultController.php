@@ -35,7 +35,16 @@ class DefaultController extends AbstractController
      */
     public function indexReact(): Response
     {
-        return $this->render('default/react.html.twig');
+        $data = ['1', 2, '3'];
+        $notes = [
+            ['id' => 1, 'title' => "Hello 1 world", 'content' => 'i am the content'],
+            ['id' => 2, 'title' => "Hello 2 world", 'content' => 'i am the content'],
+            ['id' => 3, 'title' => "Hello 3 World", 'content' => 'i am the content'],
+        ];
+        return $this->render('default/react.html.twig', [
+            'data' => $data,
+            'notes' => $notes
+        ]);
     }
 
     /**
