@@ -20,17 +20,25 @@
     </div>
     -->
 
-    <div>
-        <h1 style="text-align: center">Hello {{ controller_name|default('controller_name is undefined') }}</h1>
+    <div class="container-fluid">
+        <h1 style="text-align: center" class="text-danger">Hello {{ controller_name|default('controller_name is undefined') }}</h1>
+
+        <!-- animate css doesnt work
+        <h1 class="animate__animated animate__bounce">An animated element <i class="fab fa-symfony"></i></h1>
+        -->
 
         <!-- need to use iframe only for pdf file -->
         <iframe src="{{ asset('pictures/cv_bregeon_quentin.pdf') }}" width="1000" height="1300" allowfullscreen></iframe>
-        <a href="https://symfony.com/" target="_blank" rel="noreferrer">Go to Symfony website</a>
+
+        <a href="https://symfony.com" target="_blank" rel="noreferrer">
+            Go to Symfony website
+            <i class="fab fa-symfony"></i>
+        </a>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
-            console.log({event: event});
+            console.log({ event: event });
         }, false);
     </script>
 {% endblock %}
