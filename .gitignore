@@ -22,4 +22,8 @@ yarn-error.log
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
+###> PhpStorm editor cache files <###
 /.idea
+
+###> Php CS Fixer <###
+.php_cs.cache

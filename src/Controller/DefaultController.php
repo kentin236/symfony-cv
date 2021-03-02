@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController
 {
@@ -25,8 +25,8 @@ class DefaultController extends AbstractController
     public function indexJson(): JsonResponse
     {
         return $this->json([
-            'route' => '/default-json',
-            'status' => 200
+            'route'  => '/default-json',
+            'status' => 200,
         ], JsonResponse::HTTP_OK, [], []);
     }
 
@@ -37,27 +37,32 @@ class DefaultController extends AbstractController
     {
         $data = ['1', 2, '3'];
         $notes = [
-            ['id' => 1, 'title' => "Hello 1 world", 'content' => 'i am the content'],
-            ['id' => 2, 'title' => "Hello 2 world", 'content' => 'i am the content'],
-            ['id' => 3, 'title' => "Hello 3 World", 'content' => 'i am the content'],
+            ['id' => 1, 'title' => 'Hello 1 world', 'content' => 'i am the content'],
+            ['id' => 2, 'title' => 'Hello 2 world', 'content' => 'i am the content'],
+            ['id' => 3, 'title' => 'Hello 3 World', 'content' => 'i am the content'],
         ];
+
         return $this->render('default/react.html.twig', [
-            'data' => $data,
-            'notes' => $notes
+            'data'  => $data,
+            'notes' => $notes,
         ]);
     }
 
     /**
      * @Route(path="/api/note", methods={"GET"})
-     * @return JsonResponse
      */
     public function getNotes(): JsonResponse
     {
         $notes = [
-            ['id' => 1, 'title' => "Hello 1 world", 'content' => 'i am the content'],
-            ['id' => 2, 'title' => "Hello 2 world", 'content' => 'i am the content'],
-            ['id' => 3, 'title' => "Hello 3 World", 'content' => 'i am the content'],
+            ['id' => 1, 'title' => 'Hello 1', 'content' => 'CONTENT 1'],
+            ['id' => 2, 'title' => 'Hello 2', 'content' => 'CONTENT 2'],
+            ['id' => 3, 'title' => 'Hello 3', 'content' => 'CONTENT 3'],
         ];
-        return $this->json($notes, 200, ['Content-Type' => 'application/json', 'Access-Control-Allow-Origin' => '*']);
+
+        return $this->json(
+            $notes,
+            JsonResponse::HTTP_OK,
+            ['Content-Type' => 'application/json', 'Access-Control-Allow-Origin' => '*']
+        );
     }
 }

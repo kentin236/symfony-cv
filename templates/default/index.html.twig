@@ -30,6 +30,8 @@
         <!-- need to use iframe only for pdf file -->
         <iframe src="{{ asset('pictures/cv_bregeon_quentin.pdf') }}" width="1000" height="1300" allowfullscreen></iframe>
 
+
+        <!-- add rel="noreferrer" for target blank ! -->
         <a href="https://symfony.com" target="_blank" rel="noreferrer">
             Go to Symfony website
             <i class="fab fa-symfony"></i>
@@ -37,8 +39,8 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-            console.log({ event: event });
+        document.addEventListener("DOMContentLoaded", function($event) {
+            console.log({ event: $event });
         }, false);
     </script>
 {% endblock %}
